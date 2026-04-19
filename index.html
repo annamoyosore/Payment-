@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Acceptance Fee Payment</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(120deg, #1a2980, #26d0ce);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.box {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 350px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #e68900;
+}
+
+.note {
+    margin-top: 10px;
+    font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>Documentation and accomodation charges </h2>
+
+    <input type="text" id="name" placeholder="Full Name">
+    <input type="email" id="email" placeholder="Email Address">
+
+    <button onclick="payNow()">Pay Now</button>
+
+    <div class="note">
+        Secure payment via 1
+    </div>
+</div>
+
+<script>
+function payNow() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+
+    if (!name || !email) {
+        alert("Fill all details");
+        return;
+    }
+
+    // Replace with your real Flutterwave payment link
+    let paymentLink = "https://flutterwave.com/pay/qiattof2hy2w";
+
+    // Optional: attach user data as query params
+    let url = paymentLink + "?name=" + encodeURIComponent(name) + "&email=" + encodeURIComponent(email);
+
+    window.location.href = url;
+}
+</script>
+
+</body>
+</html>
